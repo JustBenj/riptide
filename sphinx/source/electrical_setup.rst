@@ -53,41 +53,34 @@ Jumper Configuration
 BIOS
 ----
 
-Press <ESC> or <DEL> to enter.
+Press <ESC> or <DEL> to enter the BIOS.
 
 
 Boot Config
 -----------
 
-sudo nano /etc/default/grub
-
-GRUB_CMDLINE_LINUX=”"
-
-becomes:
-
-GRUB_CMDLINE_LINUX=”text usbcore.usbfs_memory_mb=1000”
-
-Uncomment:
-
-#GRUB_TERMINAL=console
-
-sudo update-grub
+#. Run ``sudo nano /etc/default/grub``
+#. Edit the line ``GRUB_CMDLINE_LINUX=""`` to be ``GRUB_CMDLINE_LINUX="text usbcore.usbfs_memory_mb=1000"``
+#. Uncomment the line ``#GRUB_TERMINAL=console``
+#. Save these changes and exit to console.
+#. Run ``sudo update-grub``
 
 Computer Boot Procedure Outside of Vehicle
 ------------------------------------------
 
-1. Check that the mother board is set to 12V mode. See\: http://store.enochsystems.com/resources/techdocs/2014/MX87QD_Manual_V1.0.pdf#page=36
+1. Verify the proper jumper configuration.
 2. Attach power cord (frayed ends to molex connector) to binding post terminals on Power Supply
-
+   
    a. Use Channel 1 & Channel 2 in parallel
- 
-3. Plug in Power Supply
-4. Set supply to CV (Constant Voltage)
+
+3. Plug Power Supply into 120V power outlet.
+4. Set supply to CV (Constant Voltage) using top right knob.
 
    a. Turn current dial until the indicator LED nearby lights up green. This indicates that it is in CV mode.
- 
-5. Set supply Voltage to 12.0V
-6. Connect power cord to mother board.
-7. Computer should boot. 
+   b. Be sure that both channels show CV.
 
-   a. To launch GUI: `sudo service lightdm start`
+5. Set supply Voltage to 12.0V
+6. Connect power cord to motherboard.
+7. Computer should boot.
+
+   a. Optional: to launch GUI run: ``sudo service lightdm start``
